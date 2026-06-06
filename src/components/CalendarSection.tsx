@@ -1,93 +1,71 @@
-import React from "react";
+import { useState } from "react";
 
-const months = [
-  { 
-    month: "Janeiro", 
-    campaigns: [
-      { color: "bg-green-600", text: "text-green-600", cancer: "Colo do Útero", ribbon: "Verde" }
-    ] 
-  },
-  { 
-    month: "Fevereiro", 
-    campaigns: [
-      { color: "bg-green-600", text: "text-green-600", cancer: "Vesícula Biliar", ribbon: "Verde" },
-      { color: "bg-orange-500", text: "text-orange-500", cancer: "Leucemia", ribbon: "Laranja" }
-    ] 
-  },
-  { 
-    month: "Março", 
-    campaigns: [
-      { color: "bg-purple-500", text: "text-purple-500", cancer: "Colo do Útero", ribbon: "Lilás" },
-      { color: "bg-blue-900", text: "text-blue-900", cancer: "Colorretal", ribbon: "Azul Marinho" }
-    ] 
-  },
-  { 
-    month: "Abril", 
-    campaigns: [
-      { color: "bg-purple-500", text: "text-purple-500", cancer: "Testículo", ribbon: "Lilás" },
-      { color: "bg-sky-400", text: "text-sky-400", cancer: "Esôfago", ribbon: "Azul Claro" }
-    ] 
-  },
-  { 
-    month: "Maio", 
-    campaigns: [
-      { color: "bg-red-600", text: "text-red-600", cancer: "Boca (Oral)", ribbon: "Vermelho" },
-      { color: "bg-gray-500", text: "text-gray-500", cancer: "Cérebro", ribbon: "Cinza" }
-    ] 
-  },
-  { 
-    month: "Junho", 
-    campaigns: [
-      { color: "bg-green-600", text: "text-green-600", cancer: "Rim", ribbon: "Verde" },
-      { color: "bg-black", text: "text-black", cancer: "Melanoma", ribbon: "Preto" }
-    ] 
-  },
-  { 
-    month: "Julho", 
-    campaigns: [
-      { color: "bg-green-600", text: "text-green-600", cancer: "Cabeça e Pescoço", ribbon: "Verde" },
-      { color: "bg-pink-300", text: "text-pink-300", cancer: "Bexiga", ribbon: "Rosa Claro" },
-      { color: "bg-yellow-400", text: "text-yellow-400", cancer: "Ósseo", ribbon: "Amarelo" }
-    ] 
-  },
-  { 
-    month: "Agosto", 
-    campaigns: [
-      { color: "bg-slate-100 border border-border", text: "text-slate-600", cancer: "Pulmão", ribbon: "Branco" }
-    ] 
-  },
-  { 
-    month: "Setembro", 
-    campaigns: [
-      { color: "bg-green-600", text: "text-green-600", cancer: "Intestino", ribbon: "Verde" },
-      { color: "bg-yellow-600", text: "text-yellow-600", cancer: "Infantojuvenil", ribbon: "Dourado" },
-      { color: "bg-gradient-to-r from-blue-400 to-pink-400", text: "text-blue-500", cancer: "Tireoide", ribbon: "Azul e Rosa" }
-    ] 
-  },
-  { 
-    month: "Outubro", 
-    campaigns: [
-      { color: "bg-pink-500", text: "text-pink-500", cancer: "Mama", ribbon: "Rosa" },
-      { color: "bg-green-900", text: "text-green-900", cancer: "Fígado", ribbon: "Verde Escuro" }
-    ] 
-  },
-  { 
-    month: "Novembro", 
-    campaigns: [
-      { color: "bg-blue-600", text: "text-blue-600", cancer: "Próstata", ribbon: "Azul" },
-      { color: "bg-purple-800", text: "text-purple-800", cancer: "Pâncreas", ribbon: "Roxo" }
-    ] 
-  },
-  { 
-    month: "Dezembro", 
-    campaigns: [
-      { color: "bg-orange-600", text: "text-orange-600", cancer: "Pele (Não Melanoma)", ribbon: "Laranja" }
-    ] 
-  },
+type Campaign = {
+  cancer: string;
+  ribbon: string;
+  color: string; // hex
+};
+
+type MonthData = {
+  month: string;
+  short: string;
+  campaigns: Campaign[];
+};
+
+const months: MonthData[] = [
+  { month: "Janeiro", short: "Jan", campaigns: [
+    { cancer: "Colo do Útero", ribbon: "Verde", color: "#16a34a" },
+  ]},
+  { month: "Fevereiro", short: "Fev", campaigns: [
+    { cancer: "Vesícula Biliar", ribbon: "Verde", color: "#16a34a" },
+    { cancer: "Leucemia", ribbon: "Laranja", color: "#f97316" },
+  ]},
+  { month: "Março", short: "Mar", campaigns: [
+    { cancer: "Colo do Útero", ribbon: "Lilás", color: "#a855f7" },
+    { cancer: "Colorretal", ribbon: "Azul Marinho", color: "#1e3a8a" },
+  ]},
+  { month: "Abril", short: "Abr", campaigns: [
+    { cancer: "Testículo", ribbon: "Lilás", color: "#a855f7" },
+    { cancer: "Esôfago", ribbon: "Azul Claro", color: "#38bdf8" },
+  ]},
+  { month: "Maio", short: "Mai", campaigns: [
+    { cancer: "Boca (Oral)", ribbon: "Vermelho", color: "#dc2626" },
+    { cancer: "Cérebro", ribbon: "Cinza", color: "#6b7280" },
+  ]},
+  { month: "Junho", short: "Jun", campaigns: [
+    { cancer: "Rim", ribbon: "Verde", color: "#16a34a" },
+    { cancer: "Melanoma", ribbon: "Preto", color: "#0a0a0a" },
+  ]},
+  { month: "Julho", short: "Jul", campaigns: [
+    { cancer: "Cabeça e Pescoço", ribbon: "Verde", color: "#16a34a" },
+    { cancer: "Bexiga", ribbon: "Rosa Claro", color: "#f9a8d4" },
+    { cancer: "Ósseo", ribbon: "Amarelo", color: "#facc15" },
+  ]},
+  { month: "Agosto", short: "Ago", campaigns: [
+    { cancer: "Pulmão", ribbon: "Branco", color: "#f8fafc" },
+  ]},
+  { month: "Setembro", short: "Set", campaigns: [
+    { cancer: "Intestino", ribbon: "Verde", color: "#16a34a" },
+    { cancer: "Infantojuvenil", ribbon: "Dourado", color: "#ca8a04" },
+    { cancer: "Tireoide", ribbon: "Azul e Rosa", color: "linear-gradient(90deg,#60a5fa,#f472b6)" },
+  ]},
+  { month: "Outubro", short: "Out", campaigns: [
+    { cancer: "Mama", ribbon: "Rosa", color: "#ec4899" },
+    { cancer: "Fígado", ribbon: "Verde Escuro", color: "#14532d" },
+  ]},
+  { month: "Novembro", short: "Nov", campaigns: [
+    { cancer: "Próstata", ribbon: "Azul", color: "#2563eb" },
+    { cancer: "Pâncreas", ribbon: "Roxo", color: "#6b21a8" },
+  ]},
+  { month: "Dezembro", short: "Dez", campaigns: [
+    { cancer: "Pele (Não Melanoma)", ribbon: "Laranja", color: "#ea580c" },
+  ]},
 ];
 
 const CalendarSection = () => {
   const currentMonth = new Date().getMonth();
+  const [selected, setSelected] = useState(currentMonth);
+  const active = months[selected];
 
   return (
     <section id="calendario" className="py-20 bg-muted/50">
@@ -104,39 +82,87 @@ const CalendarSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {months.map((m, i) => (
-            <div
-              key={m.month}
-              className={`relative bg-card rounded-xl p-5 shadow-sm border transition-all hover:shadow-lg hover:-translate-y-1 ${
-                i === currentMonth ? "ring-2 ring-primary ring-offset-2" : "border-border"
-              }`}
-            >
-              {i === currentMonth && (
-                <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-0.5 rounded-full z-10">
-                  Mês Atual
-                </span>
-              )}
-              
-              <h3 className="font-black text-lg text-foreground text-center mb-4 border-b pb-2">
-                {m.month}
-              </h3>
+        {/* Month selector — horizontal timeline */}
+        <div className="max-w-5xl mx-auto mb-10">
+          <div className="flex gap-2 overflow-x-auto pb-3 snap-x scrollbar-thin justify-start md:justify-center">
+            {months.map((m, i) => {
+              const isActive = i === selected;
+              const isCurrent = i === currentMonth;
+              return (
+                <button
+                  key={m.month}
+                  onClick={() => setSelected(i)}
+                  className={`relative flex-shrink-0 snap-start min-w-[70px] px-3 py-3 rounded-xl border transition-all ${
+                    isActive
+                      ? "bg-foreground text-background border-foreground shadow-lg scale-105"
+                      : "bg-card text-foreground border-border hover:border-foreground/40"
+                  }`}
+                >
+                  <div className="text-[10px] uppercase font-bold tracking-wider opacity-70">
+                    {m.short}
+                  </div>
+                  <div className="flex gap-1 justify-center mt-2">
+                    {m.campaigns.map((c, idx) => (
+                      <span
+                        key={idx}
+                        className="w-2 h-2 rounded-full ring-1 ring-black/10"
+                        style={{ background: c.color }}
+                      />
+                    ))}
+                  </div>
+                  {isCurrent && (
+                    <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary ring-2 ring-background" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
-              <div className="space-y-4">
-                {m.campaigns.map((camp, idx) => (
-                  <div key={idx} className="flex flex-col items-center">
-                    <div className={`w-8 h-8 ${camp.color} rounded-full mb-2 shadow-sm`} />
-                    <p className={`text-[10px] uppercase font-bold text-center ${camp.text}`}>
-                      {camp.ribbon}
+        {/* Featured month detail */}
+        <div className="max-w-5xl mx-auto bg-card rounded-3xl shadow-xl border border-border overflow-hidden">
+          <div className="grid md:grid-cols-[1fr_2fr]">
+            {/* Left: month name */}
+            <div className="relative p-8 md:p-10 bg-gradient-to-br from-primary/10 via-secondary/10 to-hope/10 flex flex-col justify-center">
+              <span className="text-xs uppercase tracking-widest font-bold text-muted-foreground">
+                {selected === currentMonth ? "Mês atual" : "Mês selecionado"}
+              </span>
+              <h3 className="font-display font-black text-5xl md:text-6xl text-foreground mt-2 leading-none">
+                {active.month}
+              </h3>
+              <p className="text-sm text-muted-foreground mt-4">
+                {active.campaigns.length === 1
+                  ? "1 campanha de conscientização"
+                  : `${active.campaigns.length} campanhas de conscientização`}
+              </p>
+            </div>
+
+            {/* Right: campaigns list */}
+            <div className="p-6 md:p-8 space-y-4">
+              {active.campaigns.map((c, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-4 p-4 rounded-2xl border border-border hover:shadow-md transition-shadow"
+                >
+                  {/* Ribbon shape */}
+                  <div className="flex-shrink-0">
+                    <div
+                      className="w-14 h-14 rounded-full ring-4 ring-background shadow-md"
+                      style={{ background: c.color }}
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] uppercase tracking-wider font-bold text-muted-foreground">
+                      Laço {c.ribbon}
                     </p>
-                    <p className="text-xs text-muted-foreground text-center font-medium leading-tight">
-                      {camp.cancer}
+                    <p className="text-lg font-display font-bold text-foreground leading-tight">
+                      {c.cancer}
                     </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
