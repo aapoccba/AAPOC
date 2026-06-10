@@ -57,6 +57,16 @@ const galleryPhotos: GalleryPhoto[] = [
     alt: "Post do Instagram DXIboLvFo3O",
     href: "https://www.instagram.com/p/DXIboLvFo3O/",
   },
+  {
+    title: "Cestas Básicas Solidárias",
+    src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+    alt: "Cestas básicas solidárias",
+  },
+  {
+    title: "Voluntariado",
+    src: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+    alt: "Voluntários AAPOC",
+  }
 ];
 
 const GallerySection = () => {
@@ -69,7 +79,7 @@ const GallerySection = () => {
             Momentos da AAPOC
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
-            Até 10 fotos das ações, eventos e acolhimento que movem nossa comunidade.
+            Fotos das ações, eventos e acolhimento que movem nossa comunidade.
           </p>
         </div>
 
