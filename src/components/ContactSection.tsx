@@ -2,8 +2,8 @@ import { MapPin, Phone, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contato" className="py-20 bg-foreground text-primary-foreground">
-      <div className="container mx-auto px-4">
+    <section id="contato" className="bg-foreground text-primary-foreground">
+      <div className="mx-auto py-20">
         <div className="text-center mb-12">
           <span className="text-sm font-bold text-accent uppercase tracking-widest">Fale Conosco</span>
           <h2 className="text-3xl md:text-5xl font-display font-black mt-2">Contato</h2>
@@ -52,9 +52,18 @@ const ContactSection = () => {
             </a>
           </div>
         </div>
-
+    <iframe
+        title="Localização AAPOC"
+        src="https://maps.google.com/maps?q=-15.5801703,-56.0960613&z=18&output=embed"
+        width="100%"
+        height="220"
+        style={{ border: 0, display: "block", paddingTop: 10}}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
         {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-primary-foreground/10 text-center">
+        <div className="mt-5 pt-8 border-t border-primary-foreground/10 text-center">
           <p className="text-sm text-primary-foreground/50">
             © {new Date().getFullYear()} AAPOC MT — Associação de Apoio aos Pacientes Oncológicos de Cuiabá.
           </p>
