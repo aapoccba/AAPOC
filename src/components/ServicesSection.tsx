@@ -34,7 +34,7 @@ const professionals = [
       "Reabilitação física especializada para melhorar a qualidade de vida dos pacientes oncológicos.",
     banner: "/img/fisioterapia.jpeg",
     team: [
-      { name: "Dra. Luciana Ferraz", image: "/img/fisioterapia.jpeg" }
+      { name: "Dra. Luciana Ferraz", image: "/img/Luciana-Ferraz.jpeg" }
     ],
     color: "text-primary",
   },
@@ -54,9 +54,9 @@ const professionals = [
     title: "Jurídico",
     description:
       "Orientação jurídica sobre direitos do paciente oncológico, benefícios previdenciários e assistenciais. Atendimento com a Dra. Fernanda Giacomini.",
-    banner: "/img/juridico-fernanda.jpeg", // Banner específico da capa
+    banner: "/img/juridico-fernanda.jpeg", 
     team: [
-      { name: "Dra. Fernanda Giacomini", image: "/img/Dra. Fernanda.jpeg" } // Foto de dentro do modal
+      { name: "Dra. Fernanda Giacomini", image: "/img/Dra. Fernanda.jpeg" }
     ],
     color: "text-accent",
   },
@@ -65,9 +65,9 @@ const professionals = [
     title: "Jurídico",
     description:
       "Orientação jurídica sobre direitos do paciente oncológico, benefícios previdenciários e assistenciais. Atendimento com a Dra. Natália Dantas.",
-    banner: "/img/juridico-nathalia.jpeg", // Banner específico da capa
+    banner: "/img/juridico-nathalia.jpeg", 
     team: [
-      { name: "Dra. Natália Dantas", image: "/img/Dra. Nathalia.jpeg" } // Foto de dentro do modal
+      { name: "Dra. Natália Dantas", image: "/img/Nathalia Dantas.jpeg" } 
     ],
     color: "text-accent",
   },
@@ -89,7 +89,7 @@ const professionals = [
       "Aprenda a se alimentar de forma saudável e equilibrada, entenda sobre calorias e crie novos hábitos alimentares adequados ao tratamento.",
     banner: "/img/nutricionista.jpeg",
     team: [
-      { name: "Dr. João Victor Amorim", image: "/img/nutricionista.jpeg" }
+      { name: "Dr. João Victor Amorim", image: "/img/Dr Joao.jpeg" }
     ],
     color: "text-green-600",
   },

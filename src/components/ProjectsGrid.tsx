@@ -531,7 +531,7 @@ const defaultProjects: Project[] = [
   {
     title: "Empodera Elas",
     monthYear: "Ativo",
-    image: "",
+    image: "/img/empodera.jpeg",
     alt: "Empodera Elas",
     description:
       "Feira de empreendedorismo itinerante e fixa exclusiva para pacientes oncológicas assistidas gerarem renda. Todo o lucro vai integralmente para as empreendedoras.",
@@ -540,7 +540,7 @@ const defaultProjects: Project[] = [
   {
     title: "Lacre Solidário",
     monthYear: "Ativo",
-    image: "",
+    image: "/img/lacre-solidario.jpeg",
     alt: "Lacre Solidário",
     description:
       "Arrecadação de lacres de alumínio convertidos em recursos financeiros para compra de proteínas e itens essenciais para as refeições da sede e da Casa de Apoio.",
